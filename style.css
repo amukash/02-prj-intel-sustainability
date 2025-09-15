@@ -1,1 +1,133 @@
-/* Add your CSS here */
+/* GLOBAL STYLES */
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #2d769d, #243a46);
+  color: #fff;
+}
+
+header {
+  text-align: center;
+  padding: 40px 20px 20px;
+  background: #243a46;
+}
+
+.logo-cube {
+  width: 120px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1.2rem;
+  color: #d1d1d1;
+  margin: 0 auto;
+  max-width: 500px;
+}
+
+.hint {
+  text-align: center;
+  padding: 20px;
+  color: #ccc;
+}
+
+/* TIMELINE SECTION */
+section {
+  display: flex;
+  flex-direction: row; /* horizontal by default */
+  overflow-x: auto;
+  gap: 20px;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+.card {
+  flex: 0 0 350px; /* slightly smaller width */
+  height: 250px;   /* slightly smaller height */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+  scroll-snap-align: start;
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: #000;
+  position: relative;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  opacity: 1;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%; /* image fills card */
+  object-fit: cover;
+  display: block;
+  opacity: 0.7;
+}
+
+/* OVERLAY TEXT */
+.card-content {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(36,58,70,0.6), rgba(36,58,70,0));
+  padding: 10px 15px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* center vertically */
+  align-items: center;     /* center horizontally */
+  text-align: center;
+  color: #fff;
+}
+
+.card:hover .card-content {
+  opacity: 2;
+}
+
+.card-content h2 {
+  margin: 0 0 5px;
+  color: #6dc9ff;
+}
+
+.card-content h3 {
+  margin: 0 0 8px;
+  color: #1c93ed;
+}
+
+.card-content p {
+  margin: 0;
+  line-height: 1.4;
+  font-size: 0.95rem;
+}
+
+/* MOBILE / TOUCH DEVICES */
+@media (hover: none) and (pointer: coarse) {
+  .card-content {
+    opacity: 1; /* always visible on mobile */
+  }
+}
+
+/* RESPONSIVE LAYOUT */
+@media (max-width: 600px) {
+  section {
+    flex-direction: column; /* stack cards vertically */
+    overflow-x: visible;
+    padding: 20px;
+  }
+
+  .card {
+    flex: 1 0 auto;
+    width: 100%;
+    height: 300px; /* slightly smaller on mobile */
+    margin: 10px 0;
+  }
+}
