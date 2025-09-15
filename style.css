@@ -48,8 +48,8 @@ section {
 }
 
 .card {
-  flex: 0 0 300px;
-  height: 350px;
+  flex: 0 0 350px;
+  height: 250px;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 2px 10px rgba(0,0,0,0.2);
@@ -70,6 +70,7 @@ section {
   height: 100%;
   object-fit: cover;
   display: block;
+  opacity: 0.7;
 }
 
 /* OVERLAY TEXT */
